@@ -9,10 +9,10 @@ If you have not already see the Basic_Tutorial for a more detailed explaintion o
     cd my_first_speechd_module
     python3.12 -m venv venv
     source venv/bin/activate
-    pip install --upgrade pip setuptools wheel
+    pip install --upgrade pip
     pip install pySpeechModule soundfile
 
-You need to `download <https://github.com/jsett/py-speech-module/raw/refs/heads/main/docs/source/deep_learning.wav>`_ and make sure the name it ``deep_learning.wav``.
+You need to `download <https://github.com/jsett/pySpeechModule/raw/refs/heads/main/docs/source/deep_learning.wav>`_ and make sure the name it ``deep_learning.wav``.
 
 .. code-block:: python3
     :caption: dummy.py

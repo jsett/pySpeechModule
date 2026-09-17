@@ -21,7 +21,7 @@ Install dependencies.
 
 .. code-block:: bash
 
-    pip install --upgrade pip setuptools wheel
+    pip install --upgrade pip
     pip install pySpeechModule "kokoro>=0.9.4" soundfile
 
 Verify that kokoro is working.
@@ -46,7 +46,7 @@ Create your module.
 -------------------
 
 .. code-block:: python3
-    :caption: kokoro.py
+    :caption: kokoro_module.py
     :name: kokoro-py
 
     #!/home/user/src/kokoro_speechd_module/venv/bin/python
@@ -80,8 +80,9 @@ Create your module.
 
         def change_voice(self, voice_name):
             # call back for changing the voice.
+            logging.critical(f"Changed voice_name: {voice_name}")
             try:
-                filtered = [voice for voice in sel.voices if voice["name"] == voice_name][0]
+                filtered = [voice for voice in self.voices if voice["name"] == voice_name][0]
             except:
                 filtered = self.voices[0]
             self.voice = filtered["name"]
@@ -240,7 +241,7 @@ When speechd run's you script it needs to file to be executable. You can use ``c
 
 .. code-block:: python3
 
-    chmod +x kokoro.py
+    chmod +x kokoro_module.py
 
 Finally add a configure line to speechd's config file. speechd's configure file is usually found in ``~/.config/speech-dispatcher/speechd.conf``, but may be in a different location depending on your distro.
 
@@ -249,9 +250,9 @@ Finally add a configure line to speechd's config file. speechd's configure file 
     :name: speechd-conf-adv
 
     Timeout 0
-    AddModule "kokoropy" "/home/user/src/kokoro_speechd_module/kokoro.py" "kokoropy.conf"
+    AddModule "kokoropy" "/home/user/src/kokoro_speechd_module/kokoro_module.py" "kokoropy.conf"
 
-.. warning:: You should change ``/home/user/src/kokoro_speechd_module/kokoro.py`` to match your path.
+.. warning:: You should change ``/home/user/src/kokoro_speechd_module/kokoro_module.py`` to match your path.
 
 Testing the module.
 -------------------
@@ -280,6 +281,6 @@ Lets make it speak faster.
 
 .. code-block:: bash
     
-    spd-say -o "kokoropy" -r 50 -y "af_heart" "Hello world."
+    spd-say -o "kokoropy" -r 25 -y "af_heart" "Hello world."
 
 Congratulations, you have now create a speechd module that can generate tts output, is able to change speed and voices
