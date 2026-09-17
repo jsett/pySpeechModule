@@ -115,7 +115,7 @@ Last we need to create the server and create a instance of our class.
 Full Code.
 ----------
 
-Here is the complete code. You will also need to `download <https://github.com/jsett/pySpeechModule/raw/refs/heads/main/docs/source/deep_learning.wav>`_ if you have not already and make sure the name it ``deep_learning.wav``.
+Here is the complete code. You will also need to `download <https://github.com/jsett/pySpeechModule/raw/refs/heads/main/docs/source/deep_learning.wav>`_ if you have not already and make sure to name it ``deep_learning.wav``.
 
 .. code-block:: python3
     :caption: dummy.py
