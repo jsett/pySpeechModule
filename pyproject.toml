@@ -1,6 +1,6 @@
 [project]
 name = "pySpeechModule"
-version = "0.0.4"
+version = "0.0.1"
 authors = [
   { name="John Settlemyer", email="author@example.com" },
 ]
@@ -9,7 +9,7 @@ dependencies = [
 ]
 description = "A framework for creating speechd modules"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.12"
 classifiers = [
     "Programming Language :: Python :: 3",
 ]
