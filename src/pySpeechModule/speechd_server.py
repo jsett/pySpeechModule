@@ -188,6 +188,13 @@ class SpeechServer():
         with self.server_lock:
             stdout.write("203 OK AUDIO INITIALIZED\n")
             stdout.flush()
+    def _debug(self, line):
+        """
+        We already set up logging so we will not be using this for now.
+
+        :meta private:
+        """
+        pass
 
     def _loglevel(self):
         """
@@ -346,8 +353,7 @@ class SpeechServer():
             elif (line == "PAUSE\n"):
                 self._pause()
             elif (line[:5] == "DEBUG"):
-                # TODO: not sure the diffrence between log level and debug
-                pass
+                self._debug(line)
             elif (line == "QUIT\n"):
                 break
             else:
